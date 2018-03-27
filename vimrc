@@ -1,15 +1,32 @@
 " install Vundle:
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+if has('win64') || has('win32') || has('win16')
+	:let run_os = "win"
+else
+	:let run_os = "linux"
+endif
+
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+
+if run_os == "win"
+	set guifont=Consolas:h14
+	set rtp+=$HOME\.vim\bundle\Vundle.vim
+	call vundle#begin('$HOME\.vim\bundle\')
+else
+	set guifont=Courier\ New\ 14
+	set rtp+=~/.vim/bundle/Vundle.vim
+	call vundle#begin()
+endif
 
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'ervandew/supertab'
+" vim-arduino does support windows
+if run_os != "win"
 Plugin 'stevearc/vim-arduino'
+endif
 Plugin 'mbbill/echofunc'
 Plugin 'minibufexpl.vim'
 "Plugin 'taglist.vim'
@@ -17,9 +34,6 @@ Plugin 'c.vim'
 
 call vundle#end()
 filetype plugin indent on
-
-"set guifont=Consolas:h14
-"set guifont=Courier\ New\ 14
 
 set nobackup
 set number
