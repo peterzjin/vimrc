@@ -11,6 +11,10 @@ set nocompatible
 filetype off
 
 if run_os == "win"
+	set iminsert=0 imsearch=0
+endif
+
+if run_os == "win"
 	set guifont=Consolas:h14
 	set rtp+=$HOME\.vim\bundle\Vundle.vim
 	call vundle#begin('$HOME\.vim\bundle\')
