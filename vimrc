@@ -33,9 +33,11 @@ endif
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'ervandew/supertab'
-" vim-arduino does support windows
+" vim-arduino doesn't support windows
 if run_os != "win"
 Plugin 'stevearc/vim-arduino'
+else
+Plugin 'Arduino-syntax-file'
 endif
 Plugin 'mbbill/echofunc'
 Plugin 'minibufexpl.vim'
@@ -44,6 +46,11 @@ Plugin 'c.vim'
 
 call vundle#end()
 filetype plugin indent on
+
+if run_os == "win"
+" for Arduino-syntax-file
+autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
+endif
 
 set nobackup
 set number
