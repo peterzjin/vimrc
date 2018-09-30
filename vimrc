@@ -1,5 +1,11 @@
+" get the vimrc:
+" git clone https://github.com/peterzjin/vimrc.git ~/.vim
+
 " install Vundle:
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+" install plugin:
+" Launch vim and run ":PluginInstall"
 
 if has('win64') || has('win32') || has('win16')
 	:let run_os = "win"
