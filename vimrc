@@ -50,6 +50,7 @@ filetype plugin indent on
 if run_os == "win"
 " for Arduino-syntax-file
 autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
+autocmd! FileType arduino set autoindent expandtab shiftwidth=2 tabstop=2 softtabstop=2
 endif
 
 set nobackup
